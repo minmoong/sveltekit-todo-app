@@ -7,11 +7,15 @@
 		"package": "svelte-kit package",
 		"preview": "vite preview",
 		"check": "svelte-check --tsconfig ./tsconfig.json",
-		"check:watch": "svelte-check --tsconfig ./tsconfig.json --watch"
+		"check:watch": "svelte-check --tsconfig ./tsconfig.json --watch",
+		"prepare": "svelte-kit sync && npm run smui-theme",
+		"smui-theme": "smui-theme compile static/smui.css -i src/theme"
 	},
 	"devDependencies": {
+		"@smui/ripple": "^6.0.0",
 		"@sveltejs/adapter-auto": "next",
 		"@sveltejs/kit": "next",
+		"smui-theme": "^6.0.0",
 		"svelte": "^3.44.0",
 		"svelte-check": "^2.7.1",
 		"svelte-preprocess": "^4.10.6",
