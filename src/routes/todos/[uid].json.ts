@@ -6,8 +6,12 @@ export const DELETE: RequestHandler = (request) => {
 }
 
 export const PATCH: RequestHandler = async (request) => {
-  const text = (await request.request.formData()).get('text') as string;
+  const formData = await request.request.formData()
+  const text = formData.get('text') as string;
+  const done = formData.has('done') 
+  ? !!formData.get('done') : undefined
   return api(request, {
-    text
+    text,
+    done
   });
 }
