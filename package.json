@@ -2,6 +2,7 @@
 	"name": "full-stack-web-development",
 	"version": "0.0.1",
 	"scripts": {
+		"predev": "prisma migrate dev",
 		"dev": "vite dev",
 		"build": "vite build",
 		"package": "svelte-kit package",
@@ -15,6 +16,7 @@
 		"@smui/ripple": "^6.0.0",
 		"@sveltejs/adapter-auto": "next",
 		"@sveltejs/kit": "next",
+		"prisma": "^4.1.1",
 		"smui-theme": "^6.0.0",
 		"svelte": "^3.44.0",
 		"svelte-check": "^2.7.1",
@@ -23,5 +25,8 @@
 		"typescript": "^4.7.4",
 		"vite": "^3.0.0"
 	},
-	"type": "module"
+	"type": "module",
+	"dependencies": {
+		"@prisma/client": "^4.1.1"
+	}
 }
