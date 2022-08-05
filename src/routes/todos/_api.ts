@@ -1,36 +1,47 @@
 import type { RequestEvent } from '@sveltejs/kit';
+import PrismaClient from '$lib/prisma';
 
-// TODO: Persist in database
-let todos: Todo[] = [];
+const prisma = new PrismaClient();
 
-export const api = (request: RequestEvent, data?: Record<string, unknown>) => {
+export const api = async (request: RequestEvent, data?: Record<string, unknown>) => {
+  let todo = data as Todo;
   let body = {};
   let status = 500;
 
   switch (request.request.method.toUpperCase()) {
     case 'GET':
-      body = todos;
+      body = await prisma.todo.findMany();
       status = 200;
       break;
     case 'POST':
-      todos.push(data as Todo);
-      body = data as Todo;
+      body = await prisma.todo.create({
+        data: {
+          created_at: todo.created_at,
+          done: todo.done,
+          text: todo.text
+        }
+      });
       status = 201;
       break;
     case 'DELETE':
-      todos = todos.filter(todo => todo.uid !== request.params.uid);
+      body = await prisma.todo.delete({
+        where: {
+          uid: request.params.uid
+        }
+      });
       status = 200;
       break;
     case 'PATCH':
-      todos = todos.map(todo => {
-        if (todo.uid === request.params.uid) {
-          if ((data as Todo).text) todo.text = (data as Todo).text as string;
-          else todo.done = (data as Todo).done as boolean;
+      body = await prisma.todo.update({
+        where: {
+          uid: request.params.uid
+        },
+        data: {
+          done: todo.done,
+          text: todo.text
         }
-        return todo;
       });
       status = 200;
-      body = todos.find(todo => todo.uid === request.params.uid) as Todo
       break;
 
     default:

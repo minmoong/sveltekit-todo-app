@@ -90,6 +90,7 @@
     result: processUpdatedTodoResult
   }}>
     <input type="hidden" name="done" value="{todo.done ? '' : 'true'}" />
+    <input type="hidden" name="text" value="{todo.text}" />
     <button aria-label="Mark todo as {todo.done ? 'not done' : 'done'}" class="toggle" />
   </form>
 
