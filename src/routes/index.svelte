@@ -5,6 +5,7 @@
   export const load: Load = async ({ fetch }) => {
     const res = await fetch('/todos.json');
     console.log(res);
+    // console.log(await res.json());
 
     // if (res.ok) {
     //   const todos = await res.json();
@@ -45,7 +46,7 @@
 </script>
 
 <style>
-  .todos {
+  /* .todos {
     width: 100%;
     max-width: 42rem;
     margin: 4rem auto 0 auto;
@@ -75,7 +76,7 @@
 
   .todos :global(input:focus-visible) {
     outline: none;
-  }
+  } */
 </style>
 
 <!-- <svelte:head>

@@ -12,10 +12,10 @@ export const api = async (request: RequestEvent, data?: Record<string, unknown>)
     case 'GET':
       return {
         status: 200,
-        body: await prisma.todo.findMany()
+        body: JSON.stringify(await prisma.todo.findMany())
       }
-      body = await prisma.todo.findMany();
-      status = 200;
+      // body = await prisma.todo.findMany();
+      // status = 200;
       break;
     case 'POST':
       body = await prisma.todo.create({
