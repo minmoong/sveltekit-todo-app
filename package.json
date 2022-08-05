@@ -2,7 +2,7 @@
 	"name": "full-stack-web-development",
 	"version": "0.0.1",
 	"scripts": {
-		"predev": "prisma migrate dev",
+		"predev": "npx prisma migrate dev",
 		"dev": "vite dev",
 		"build": "vite build",
 		"package": "svelte-kit package",
@@ -10,7 +10,8 @@
 		"check": "svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-check --tsconfig ./tsconfig.json --watch",
 		"prepare": "svelte-kit sync && npm run smui-theme",
-		"smui-theme": "smui-theme compile static/smui.css -i src/theme"
+		"smui-theme": "smui-theme compile static/smui.css -i src/theme",
+		"vercel-build": "prisma migrate deploy && npm run build"
 	},
 	"devDependencies": {
 		"@smui/ripple": "^6.0.0",
