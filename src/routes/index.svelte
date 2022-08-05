@@ -3,9 +3,8 @@
   import { enhance } from '$lib/actions/form';
 
   export const load: Load = async ({ fetch }) => {
-    console.log('request start')
     const res = await fetch('/todos.json');
-    console.log('request end')
+    console.log(await res.json());
 
     // if (res.ok) {
     //   const todos = await res.json();
