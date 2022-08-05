@@ -1,46 +1,46 @@
 <script context="module" lang="ts">
-  import type { Load } from '@sveltejs/kit';
-  import { enhance } from '$lib/actions/form';
+  // import type { Load } from '@sveltejs/kit';
+  // import { enhance } from '$lib/actions/form';
 
-  export const load: Load = async ({ fetch }) => {
-    const res = await fetch('/todos.json');
+  // export const load: Load = async ({ fetch }) => {
+  //   const res = await fetch('/todos.json');
 
-    if (res.ok) {
-      const todos = await res.json();
-      return {
-        props: { todos }
-      }
-    }
+  //   if (res.ok) {
+  //     const todos = await res.json();
+  //     return {
+  //       props: { todos }
+  //     }
+  //   }
 
-    const { message } = await res.json();
-    return {
-      error: new Error(message)
-    };
-  };
+  //   const { message } = await res.json();
+  //   return {
+  //     error: new Error(message)
+  //   };
+  // };
 </script>
 
 <script lang="ts">
-  import TodoItem from '$lib/todo-item.svelte';
-  import Ripple from '@smui/ripple';
+  // import TodoItem from '$lib/todo-item.svelte';
+  // import Ripple from '@smui/ripple';
   
-  export let todos: Todo[];
+  // export let todos: Todo[];
 
-  const title = 'Todo';
+  // const title = 'Todo';
 
-  const processNewTodoResult = async (res: Response, form: HTMLFormElement) => {
-    const newTodo = await res.json();
-    todos = [...todos, newTodo];
+  // const processNewTodoResult = async (res: Response, form: HTMLFormElement) => {
+  //   const newTodo = await res.json();
+  //   todos = [...todos, newTodo];
 
-    form.reset();
-  };
+  //   form.reset();
+  // };
 
-  const processUpdatedTodoResult = async (res: Response) => {
-    const updatedTodo = await res.json();
-    todos = todos.map(t => {
-      if (t.uid === updatedTodo.uid) return updatedTodo;
-      return t;
-    });
-  };
+  // const processUpdatedTodoResult = async (res: Response) => {
+  //   const updatedTodo = await res.json();
+  //   todos = todos.map(t => {
+  //     if (t.uid === updatedTodo.uid) return updatedTodo;
+  //     return t;
+  //   });
+  // };
 </script>
 
 <style>
@@ -77,12 +77,13 @@
   }
 </style>
 
-<svelte:head>
+<!-- <svelte:head>
   <title>{title}</title>
-</svelte:head>
+</svelte:head> -->
 
 <div class="todos">
-  <h1>{title}</h1>
+  <h1>Hello World!</h1>
+  <!-- <h1>{title}</h1>
 
   <form action="/todos.json" method="post" class="new" use:enhance={{
     result: processNewTodoResult
@@ -100,5 +101,5 @@
       }}
       {processUpdatedTodoResult}
     />
-  {/each}
+  {/each} -->
 </div>
