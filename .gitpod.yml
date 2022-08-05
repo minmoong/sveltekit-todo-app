@@ -18,6 +18,12 @@ tasks:
     env:
       DATABASE_URL: postgres://gitpod@localhost/todos
 
+ports:
+  - port: 5173
+    onOpen: open-browser
+  - port: 5555
+    onOpen: open-browser
+
 vscode:
   extensions:
     - svelte.svelte-vscode
