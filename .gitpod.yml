@@ -1,12 +1,3 @@
-# Deleted port settings.
-# ports:
-#   - port: 5173
-#     onOpen: open-browser
-#   - port: 5432
-#     onOpen: ignore
-#   - port: 5555
-#     onOpen: open-browser
-
 image: gitpod/workspace-postgres
 
 tasks:
@@ -21,6 +12,8 @@ tasks:
 ports:
   - port: 5173
     onOpen: open-browser
+  - port: 5432
+    onOpen: ignore
   - port: 5555
     onOpen: open-browser
 
