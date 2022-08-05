@@ -10,10 +10,6 @@ export const api = async (request: RequestEvent, data?: Record<string, unknown>)
 
   switch (request.request.method.toUpperCase()) {
     case 'GET':
-      return {
-        status: 200,
-        body: 'GET Request.'
-      }
       body = await prisma.todo.findMany();
       status = 200;
       break;
