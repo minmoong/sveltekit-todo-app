@@ -1,22 +1,24 @@
 <script context="module" lang="ts">
-  // import type { Load } from '@sveltejs/kit';
-  // import { enhance } from '$lib/actions/form';
+  import type { Load } from '@sveltejs/kit';
+  import { enhance } from '$lib/actions/form';
 
-  // export const load: Load = async ({ fetch }) => {
-  //   const res = await fetch('/todos.json');
+  export const load: Load = async ({ fetch }) => {
+    console.log('request start')
+    const res = await fetch('/todos.json');
+    console.log('request end')
 
-  //   if (res.ok) {
-  //     const todos = await res.json();
-  //     return {
-  //       props: { todos }
-  //     }
-  //   }
+    // if (res.ok) {
+    //   const todos = await res.json();
+    //   return {
+    //     props: { todos }
+    //   }
+    // }
 
-  //   const { message } = await res.json();
-  //   return {
-  //     error: new Error(message)
-  //   };
-  // };
+    // const { message } = await res.json();
+    // return {
+    //   error: new Error(message)
+    // };
+  };
 </script>
 
 <script lang="ts">
@@ -82,7 +84,7 @@
 </svelte:head> -->
 
 <div class="todos">
-  <h1>Hello World!</h1>
+  <h1>Hello Minmoong</h1>
   <!-- <h1>{title}</h1>
 
   <form action="/todos.json" method="post" class="new" use:enhance={{
