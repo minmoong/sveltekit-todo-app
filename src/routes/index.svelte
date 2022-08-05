@@ -83,7 +83,7 @@
 </svelte:head> -->
 
 <div class="todos">
-  <h1>Hello Minmoong</h1>
+  <h1>HIWORLD</h1>
   <!-- <h1>{title}</h1>
 
   <form action="/todos.json" method="post" class="new" use:enhance={{
