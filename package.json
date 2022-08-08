@@ -11,7 +11,7 @@
 		"check:watch": "svelte-check --tsconfig ./tsconfig.json --watch",
 		"prepare": "svelte-kit sync && npm run smui-theme",
 		"smui-theme": "smui-theme compile static/smui.css -i src/theme",
-		"vercel-build": "export DATABASE_URL=`postgres://gitpod@localhost/todos` && prisma migrate deploy && npm run build"
+		"vercel-build": "export DATABASE_URL=postgres://gitpod@localhost/todos && prisma migrate deploy && npm run build"
 	},
 	"devDependencies": {
 		"@smui/ripple": "^6.0.0",
