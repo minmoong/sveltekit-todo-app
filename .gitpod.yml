@@ -5,9 +5,13 @@ tasks:
     command: |
       export HMR_HOST=`gp url 5173`
       npm run dev
+    env:
+      DATABASE_URL: postgres://gitpod@localhost/todos
   - command: |
       export DATABASE_URL=`postgres://gitpod@localhost/todos`
       npx prisma studio
+    env:
+      DATABASE_URL: postgres://gitpod@localhost/todos
 
 ports:
   - port: 5173
